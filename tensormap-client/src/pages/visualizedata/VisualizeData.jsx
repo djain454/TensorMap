@@ -133,7 +133,7 @@ Fiat 128,32.4,4,78.7,66,4.08,2.2,19.47,1,1,4,1`.split("\n");
         }
       }
       else if(row == 0 && idx != 0) {
-        if(this.state.selectCol != null && this.state.selectCol == idx) {
+        if(this.state.selectCol != null && this.state.selecCol == idx) {
           return <td className={classes.tabletd} id={idx} onClick={this.highlightCol} className={classes.highlightCol}>{ele}</td>
         }
         else {
