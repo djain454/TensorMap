@@ -56,9 +56,8 @@ class AddData extends React.Component {
         body: data,
       }).then((response) => {
         console.log(response.body);
-        //   let path = "/visualize/";
-        //   path = path.concat(this.state.fileName)
-        //   this.props.history.push(path);
+          let path = "/visualize";
+          this.props.history.push(path);
         
       }).catch(function (error) {
           console.log(error);
