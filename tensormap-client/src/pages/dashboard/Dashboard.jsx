@@ -6,6 +6,7 @@ import {Route}      from 'react-router-dom'
 import {Home}       from './scenes/home'
 import {A}        from './scenes/a'
 import {B}        from './scenes/b'
+import {AddData}   from '../adddata'
 import {Header}     from './components/header'
 import {Sidebar}    from './components/sidebar'
 import styles       from './Dashboard.styles'
@@ -29,9 +30,11 @@ class Dashboard extends React.Component {
             {url_.pathname !== '/neuralnet' &&
                 <div className={classes.toolbar}/>
             }
+            <Route path="/adddata" component={AddData}/>
             <Route exact path='/home' component={Home}/>
             <Route exact path='/neuralnet' component={A}/>
             <Route exact path='/b' component={B}/>
+            <Route exact path='/' component={B}/>
           </main>
         </div>
     )
