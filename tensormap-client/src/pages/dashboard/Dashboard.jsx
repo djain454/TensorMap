@@ -7,6 +7,7 @@ import {Home}       from './scenes/home'
 import {A}        from './scenes/a'
 import {B}        from './scenes/b'
 import {AddData}   from '../adddata'
+import {VisualizeData} from '../visualizedata'
 import {Header}     from './components/header'
 import {Sidebar}    from './components/sidebar'
 import styles       from './Dashboard.styles'
@@ -31,6 +32,7 @@ class Dashboard extends React.Component {
                 <div className={classes.toolbar}/>
             }
             <Route path="/adddata" component={AddData}/>
+            <Route exact path="/visualize" component={VisualizeData}/>
             <Route exact path='/home' component={Home}/>
             <Route exact path='/neuralnet' component={A}/>
             <Route exact path='/b' component={B}/>

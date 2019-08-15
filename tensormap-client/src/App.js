@@ -7,7 +7,7 @@ import {history}       from './helpers'
 import {Dashboard}     from './pages/dashboard'
 // import {AddData}       from './pages/adddata'
 // import {ViewData}      from './pages/viewdata'
-import {VisualizeData} from './pages/visualizedata'
+
 
 class App extends React.Component {
 
@@ -19,7 +19,7 @@ class App extends React.Component {
           <Router history={history}>
             <div>
               
-              <Route path="/visualize" component={VisualizeData}/>
+              
               {/* <Route path="/viewdata" component={ViewData}/> */}
               <Route path="/" component={Dashboard}/>
               {/*<PrivateRoute exact path="/" component={Dashboard}/>*/}
