@@ -14,6 +14,16 @@ import styles       from './Dashboard.styles'
 
 class Dashboard extends React.Component {
 
+  constructor() {
+    super();
+
+    this.state = {
+      trainPercentageDashboard : "null",
+      featuresDashboard : [],
+      labelsDashboard :  [],
+    }
+  }
+
   render() {
     const {classes} = this.props
     console.log(window.location.href);
@@ -32,7 +42,7 @@ class Dashboard extends React.Component {
                 <div className={classes.toolbar}/>
             }
             <Route path="/adddata" component={AddData}/>
-            <Route exact path="/visualize" component={VisualizeData}/>
+            <Route exact path="/visualize" component={VisualizeData} />
             <Route exact path='/home' component={Home}/>
             <Route exact path='/neuralnet' component={A}/>
             <Route exact path='/b' component={B}/>
