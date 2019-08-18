@@ -6,6 +6,8 @@ import os
 import json
 import csv
 import pandas as pd
+from flask import send_file
+
 
 def createJsonData(entry):
     i= 0
@@ -161,6 +163,40 @@ def deleteDataRow():
 
     return "Done" 
 
+@main.route('/deleteColumn', methods=['POST'])
+def deleteDataColumn():
+
+    content = request.get_json()
+
+    entry = dataset.query.filter_by(fileName=content['fileName']).one()
+
+    dataCsv = pd.read_csv(entry.filePath)
+
+    for column in content["columnData"]:
+        if column["checked"]:
+            print(column["title"])
+            dataCsv.drop(column["title"], axis=1, inplace=True)
+        print(column)    
+
+    dataCsv.to_csv(entry.filePath, index=False)
+
+    responseData = createJsonData(entry)
+
+    return responseData 
+
+@main.route('/downloadCSV', methods=['POST'])
+def download():
+
+    content = request.get_json()
+
+    entry = dataset.query.filter_by(fileName=content['fileName']).one()
+    fullFileName = '{}{}{}'.format(entry.fileName, ".", entry.fileFormat)
+    try:
+        return send_file(entry.filePath,
+        attachment_filename=fullFileName,
+        as_attachment=True)
+    except Exception as e:
+        return str(e)
    
 
 @main.route('/viewData', methods=['GET'])
@@ -169,16 +205,5 @@ def viewData():
     entries = [entry.serialize() for entry in entries]
     return json.dumps(entries)
 
-# @main.route('/updateData', methods=['GET'])
-# def updateData():
-#     entry = dataset.query.filter_by(id=int(request.args['id'])).one()
-#     entry.name = request.args['name']
-#     db.session.commit()
-#     return "successfully updated!!"
 
-# @main.route('/deleteData', methods=['GET'])
-# def deleteData():
-#     dataset.query.filter_by(id=int(request.args['id'])).delete()
-#     db.session.commit()
-#     return "successfully deleted!!"
 
