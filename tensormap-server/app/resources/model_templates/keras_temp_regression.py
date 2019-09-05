@@ -3,8 +3,17 @@ from tensorflow import keras
 from tensorflow.keras import layers
 import numpy as np
 from sklearn.metrics import mean_squared_error, mean_absolute_error
+from sklearn.model_selection import train_test_split
+import pandas as pd
 
 np.random.seed(0)
+
+dataCsv = pd.read_csv()
+        
+_x = dataCsv[]
+_y = dataCsv[]
+
+x_train, y_train, x_test, y_test = train_test_split(_x, _y, random_state=42, shuffle=True, test_size=)
 
 network = tf.keras.models.Sequential(name='userModel')
 

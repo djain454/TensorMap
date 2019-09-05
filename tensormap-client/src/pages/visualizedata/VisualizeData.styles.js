@@ -1,7 +1,7 @@
 const styles = theme => ({
 	container: {
 	    position: 'absolute',
-	    left: '40%',
+	    left: '20%',
 	    top: '20%'
   	},
   	highlightRow: {
@@ -46,7 +46,21 @@ const styles = theme => ({
   	inputdata: {
   		display: 'inline-block',
   		width: '50px'
-  	}
+	  },
+
+	visualizeHeader: {
+		padding: '5px',
+		// textAlign: 'center',
+		background: 'white',
+		color: 'black',
+		fontSize: '15px'
+	  },
+
+	tabStyle:{
+		padding: '30px'
+	}
+
+
 })
 
 export default styles
